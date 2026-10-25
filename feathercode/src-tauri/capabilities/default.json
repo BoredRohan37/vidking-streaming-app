@@ -1,0 +1,6 @@
+{
+  "identifier": "default",
+  "description": "FeatherCode default permissions",
+  "windows": ["main"],
+  "permissions": ["core:default", "dialog:default"]
+}
