@@ -10,6 +10,7 @@ permissions:
 
 env:
   NDK_VERSION: 26.3.11579264
+  ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
 
 jobs:
   apk:
