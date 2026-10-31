@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="moviebox_bg">#0A0A0F</color>
+    <color name="moviebox_bar">#0E0E16</color>
+    <color name="moviebox_accent">#FF3B5C</color>
+</resources>

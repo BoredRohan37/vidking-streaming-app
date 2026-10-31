@@ -1,0 +1,26 @@
+name: Windows 7/8.1 build
+
+on:
+  workflow_dispatch:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: read
+
+jobs:
+  win7:
+    name: ${{ matrix.arch }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        arch: [x86_64, i686]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build
+        run: ./win7/build-win7.sh ${{ matrix.arch }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MovieBox_Win7_${{ matrix.arch }}
+          path: dist/MovieBox_Win7_${{ matrix.arch }}.zip

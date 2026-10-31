@@ -1,0 +1,26 @@
+#define RT_MANIFEST 24
+1 ICON "icon.ico"
+1 RT_MANIFEST "app.manifest"
+1 VERSIONINFO
+FILEVERSION 0,1,0,0
+PRODUCTVERSION 0,1,0,0
+FILEOS 0x4
+FILETYPE 0x1
+BEGIN
+  BLOCK "StringFileInfo"
+  BEGIN
+    BLOCK "040904B0"
+    BEGIN
+      VALUE "ProductName", "MovieBox"
+      VALUE "FileDescription", "MovieBox - stream movies and series"
+      VALUE "FileVersion", "0.1.0"
+      VALUE "ProductVersion", "0.1.0"
+      VALUE "LegalCopyright", "MIT OR Apache-2.0"
+      VALUE "OriginalFilename", "moviebox-gui.exe"
+    END
+  END
+  BLOCK "VarFileInfo"
+  BEGIN
+    VALUE "Translation", 0x409, 1200
+  END
+END

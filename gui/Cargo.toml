@@ -1,0 +1,55 @@
+[package]
+name = "moviebox-gui"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.90.0"
+license = "MIT OR Apache-2.0"
+description = "A lightweight, software-rendered desktop GUI for MovieBox (runs on Windows 7/8.1 without a GPU)"
+publish = false
+
+# Keep this crate out of the parent package's workspace.
+[workspace]
+
+[lib]
+name = "moviebox_gui"
+path = "src/lib.rs"
+crate-type = ["cdylib", "rlib"]
+
+[[bin]]
+name = "moviebox-gui"
+path = "src/main.rs"
+
+[dependencies]
+moviebox-tui = { path = ".." }
+egui = { version = "0.37", features = ["default_fonts"] }
+egui-winit = "0.37"
+winit = "0.30"
+softbuffer = "0.4"
+image = { version = "0.25", default-features = false, features = ["jpeg", "png", "webp"] }
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "time", "sync", "fs", "io-util"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+log = "0.4"
+jni = { version = "0.21", optional = true }
+eframe = { version = "0.37", default-features = false, features = ["glow"], optional = true }
+
+[features]
+# `mobile` = run through eframe (GPU) with the Android glue; used for the Android build.
+mobile = ["dep:eframe", "dep:jni"]
+android-game-activity = ["mobile", "eframe/android-game-activity"]
+# Host-side compile check of the mobile code path (no Android toolchain needed).
+mobile-host = ["mobile", "eframe/x11", "eframe/wayland"]
+
+[build-dependencies]
+embed-resource = "3"
+
+[profile.dev]
+opt-level = 2
+debug = false
+
+[profile.release]
+opt-level = 3
+lto = "fat"
+codegen-units = 1
+panic = "abort"
+strip = true

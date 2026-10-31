@@ -1,0 +1,15 @@
+<resources>
+    <style name="Theme.MovieBox" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@color/moviebox_bg</item>
+        <item name="android:statusBarColor">@color/moviebox_bg</item>
+        <item name="android:navigationBarColor">@color/moviebox_bar</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+        <item name="colorAccent">@color/moviebox_accent</item>
+    </style>
+
+    <style name="Theme.MovieBox.Player" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@android:color/black</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+</resources>
