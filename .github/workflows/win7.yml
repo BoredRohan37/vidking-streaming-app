@@ -17,10 +17,10 @@ jobs:
       matrix:
         arch: [x86_64, i686]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Build
         run: ./win7/build-win7.sh ${{ matrix.arch }}
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: MovieBox_Win7_${{ matrix.arch }}
           path: dist/MovieBox_Win7_${{ matrix.arch }}.zip
